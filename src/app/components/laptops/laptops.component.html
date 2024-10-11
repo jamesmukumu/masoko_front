@@ -1,0 +1,16 @@
+<strong>Hp Laptops</strong>
+<div class="container-laptops">
+<div *ngFor="let laptop of laptops" class="laptops">
+<mat-card>
+<img src={{laptop.thumbnail}} alt="">
+<mat-card-subtitle>{{laptop.name}}</mat-card-subtitle>
+<mat-card-subtitle>KES:{{FoolsPrice(laptop.price)}}</mat-card-subtitle>
+<button mat-stroked-button style="color: green;border-color: green;">Add to cart</button>
+<button mat-flat-button class="btn">Buy Now</button>
+</mat-card>
+
+
+</div>
+
+
+</div>

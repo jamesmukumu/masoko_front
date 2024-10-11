@@ -1,0 +1,39 @@
+<mat-card class="head">
+<mat-card-title>Jeshi</mat-card-title>
+<div class="categories-large">
+<mat-icon>category</mat-icon>
+<span>Categories</span>
+</div>
+
+<mat-form-field>
+<mat-label>What are you looking for?</mat-label>
+<mat-icon matSuffix>search</mat-icon>
+<input type="text" matInput style="border-color: green;" />
+</mat-form-field>
+
+<div class="icons">
+<mat-icon>person</mat-icon>
+
+<mat-icon>shopping_cart</mat-icon>
+</div>
+
+
+</mat-card>
+
+
+<!-- my carousel -->
+
+<c-carousel>
+    
+    <c-carousel-inner>
+      <c-carousel-item *ngFor="let images of sliderImage">
+        <img
+        style="width: 100%;"
+          [src]="images"
+          alt=""
+          class="d-block w-100"
+          loading="lazy" />
+      </c-carousel-item>
+    </c-carousel-inner>
+
+  </c-carousel>
