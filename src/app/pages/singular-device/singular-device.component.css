@@ -1,0 +1,88 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+.btnm{
+    color: white;
+    background: #DCE35B; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #45B649, #DCE35B); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #45B649, #DCE35B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+mat-tab-group mat-card p{
+font-size: 13px;
+font-weight: normal;
+}
+mat-tab-group mat-card strong{
+font-size: 13px;
+font-weight: normal;
+}
+
+.thumbnail-column{
+display: flex;
+flex-direction: column;
+}
+.images-thumbnail{
+border-color: #45B649;
+cursor: pointer;
+margin-top: 20px;
+width: 155px;
+height: 155px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.images-thumbnail img{
+width: 100%;
+height: 100%;
+}
+
+.main-info{
+display: flex;
+flex-direction: row;
+}
+
+strong{
+font-size: 22px;
+font-weight: bolder;
+}
+.add-buy button{
+margin-right: 22px;
+}
+
+ 
+.offers{
+background-color: rgb(247,247,247);
+}
+
+
+@media(max-width:900px){
+.main-info{
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+}
+.thumbnail-column{
+flex-direction: row;
+flex-wrap: wrap;
+}
+.images-thumbnail {
+    border-color: #45B649;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    flex: 1 1 155px; 
+    max-width: 75px;
+    height: 75px;
+    margin-left: 14px;
+  }
+  .main-image{
+max-width: 100vw;
+min-width: 100%;
+  }
+  .main-image img{
+width: 100%;
+}
+strong{
+font-size: 17px;
+}
+}

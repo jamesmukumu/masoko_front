@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { PixelsService } from '../../services/pixels.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'samsung',
@@ -8,9 +10,14 @@ import { PixelsService } from '../../services/pixels.service';
 })
 export class SamsungComponent implements OnInit {
 samsungPhone:any[] = []
-constructor(private phone:PixelsService){}
+constructor(private phone:PixelsService,private routing:Router){}
 
-
+Navigator(urlPath:String){
+urlPath = urlPath.replace("/","")
+this.routing.navigate([`/desired/device/${urlPath}`])
+}
+      
+  
 
 priceFormatter(PriceString:string):string{
   return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")

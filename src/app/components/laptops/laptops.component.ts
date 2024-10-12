@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { LaptopsService } from '../../services/laptops.service';
 
 @Component({
@@ -20,9 +20,14 @@ var exaggeratedPrice = +actualPrice - 20500
 var clientPrice = exaggeratedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
 return clientPrice
 }
+Navigator(urlPath:String){
+urlPath = urlPath.replace("/","")
+this.routing.navigate([`/desired/device/${urlPath}`])
+}
+    
 
 
-constructor(private hp:LaptopsService){}
+constructor(private hp:LaptopsService,private routing:Router){}
   ngOnInit(){
     this.hp.Fetch_Laptops().then((data)=>{
       this.laptops = data.data

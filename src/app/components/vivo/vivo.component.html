@@ -1,7 +1,7 @@
 <strong>Samsung Smart Phones</strong>
 <div class="container-samsung">
     <div *ngFor="let samsung of vivoPhones" class="samsung">
-    <mat-card>
+    <mat-card (click)="Navigator(samsung.urlPath)">
     <img src={{samsung.thumbnail}} alt="">
     <mat-card-subtitle>{{samsung.name}}</mat-card-subtitle>
     <mat-card-subtitle>KES:{{priceChanger(samsung.price)}}</mat-card-subtitle> 

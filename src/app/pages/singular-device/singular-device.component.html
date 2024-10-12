@@ -1,0 +1,98 @@
+<mat-card>
+<header></header>
+<div class="card" *ngIf="!deviceFetched">
+<p-progressBar mode="indeterminate" [style]="{'height': '6px','color':'green'}"  />
+</div>
+        
+    
+
+<mat-card *ngIf="deviceFetched" class="main-info">
+<div class="thumbnail-column">
+<div class="images-thumbnail" *ngFor="let info of deviceInformation.gallery">
+<img src={{info.thumbnail}} alt="" (click)="AdjustMain(info.thumbnail)">
+</div>
+</div>
+
+<div class="main-image">
+<img src={{deviceInformation.gallery[defaultImageIndex].full}} alt="">
+</div>
+
+
+<div class="basic-device-info">
+<strong>{{deviceInformation.name}}</strong>
+<p>
+<button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+<mat-icon>favorite</mat-icon>
+</button>
+</p>
+<strong>
+KES: {{priceChanger(deviceInformation.price)}}
+</strong>
+<div *ngIf="deviceInformation.specialPrice != null">
+<del>KES:{{deviceInformation.specialPrice}}</del>
+<p style="color: red;font-weight: bolder;">
+{{discountCalc(deviceInformation.price,deviceInformation.specialPrice)}}% OFF
+</p>
+</div>
+
+<p>Quantity:</p>
+<div class="stack-quantity">
+<button mat-icon-button matTooltip="Increase quantity by 1" (click)="increaseQuantity()">
+<mat-icon>add</mat-icon>
+</button>
+
+<mat-form-field>
+<input type="text" [(ngModel)]="initialQuantity" matInput/>
+</mat-form-field>
+<button mat-icon-button matTooltip="Decrease quantity by 1" (click)="decreaseQuantity()">
+<mat-icon>remove</mat-icon>
+</button>
+</div>
+
+<mat-card class="add-buy">
+<button mat-stroked-button style="color: green;border-color: green;">Add to cart</button>
+<button mat-flat-button class="btnm">Buy Now</button>
+</mat-card>
+
+<strong>What we offer you</strong>
+<mat-card class="offers">
+<img src="../../../assets/icons8-mpesa-96.png" style="width: 40px;height: 40px;" alt="">
+<p>You can completely through Mpesa</p>
+<img src="../../../assets/visa.png" style="width: 40px;height: 40px;" alt="">
+<p>You can completely pay with either debit or credit card</p>
+<img src="../../../assets/truck.png" style="width: 40px;height: 40px;" alt="">
+<p>Guaranteed Same day delivery</p>
+<img src="../../../assets/transaction.png" style="width: 40px;height: 40px;" alt="">
+<p>Accepted refunds withing 30 days</p>
+
+</mat-card>
+
+</div>
+
+
+
+
+</mat-card>
+<mat-tab-group>
+<mat-tab label="Description">
+<mat-card [innerHTML]="deviceInformation.shortDescription">
+
+</mat-card>
+</mat-tab>
+<mat-tab label="Overview">
+<mat-card [innerHTML]="deviceInformation.description"></mat-card> 
+</mat-tab>
+<mat-tab label="Review">
+<mat-card-subtitle>This Item is yet to be reveiwed.You could review this item by creating an account with us</mat-card-subtitle>
+</mat-tab>
+</mat-tab-group>
+
+<footer></footer>
+</mat-card>
+
+
+
+
+
+
+

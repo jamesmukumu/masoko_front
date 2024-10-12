@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-
-
+import {MatProgressBarModule} from "@angular/material/progress-bar"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -11,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import {MatCardModule} from "@angular/material/card"
 import {MatIconModule} from "@angular/material/icon"
 import {MatInputModule} from "@angular/material/input"
+import { ProgressBarModule } from 'primeng/progressbar';
+import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from "@angular/material/button"
 import {
   CarouselComponent,
@@ -27,6 +27,11 @@ import { IphoneComponent } from './components/iphone/iphone.component';
 import { VivoComponent } from './components/vivo/vivo.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PixelsComponent } from './components/pixels/pixels.component';
+import { SingularDeviceComponent } from './pages/singular-device/singular-device.component';
+import {MatTooltipModule} from "@angular/material/tooltip"
+import {MatTabsModule} from "@angular/material/tabs";
+import { OnePlusComponent } from './components/one-plus/one-plus.component'
+
 
 
 @NgModule({
@@ -39,13 +44,20 @@ import { PixelsComponent } from './components/pixels/pixels.component';
     IphoneComponent,
     VivoComponent,
     FooterComponent,
-    PixelsComponent
+    PixelsComponent,
+    SingularDeviceComponent,
+    OnePlusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+  MatProgressBarModule,
     MatButtonModule,
     MatCardModule,
+    ProgressBarModule,
+    MatTooltipModule,
+    MatTabsModule,
+    FormsModule,
     MatInputModule,
     CarouselComponent,
     CarouselControlComponent,
@@ -55,10 +67,15 @@ import { PixelsComponent } from './components/pixels/pixels.component';
     CarouselIndicatorsComponent,
     MatIconModule,
     RouterModule.forRoot([
+      {
+        path:"desired/device/:deviceurl",
+        component:SingularDeviceComponent
+      },
 {
   path:"",
   component:HomeComponent
-}
+},
+
     ])
   ],
   providers: [

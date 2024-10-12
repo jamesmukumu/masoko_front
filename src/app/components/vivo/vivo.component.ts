@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { PixelsService } from '../../services/pixels.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -9,12 +11,16 @@ import { PixelsService } from '../../services/pixels.service';
 })
 export class VivoComponent implements OnInit{
 vivoPhones:any[] = []
-constructor(private phone:PixelsService){}
+constructor(private phone:PixelsService,private routing:Router){}
 
 
 
 priceFormatter(PriceString:string):string{
   return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")
+}
+Navigator(urlPath:String){
+urlPath = urlPath.replace("/","")
+this.routing.navigate([`/desired/device/${urlPath}`])
 }
 
 priceChanger(PhonePrice:string):string{
