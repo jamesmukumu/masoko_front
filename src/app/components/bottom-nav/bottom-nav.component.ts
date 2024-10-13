@@ -8,6 +8,7 @@ import {Store} from "@ngrx/store"
   templateUrl: './bottom-nav.component.html',
   styleUrl: './bottom-nav.component.css'
 })
+//
 export class BottomNavComponent implements OnInit{
 devicesAddectToCart?:Observable<any>
 constructor(private store:Store<{"cart":string}>){}
