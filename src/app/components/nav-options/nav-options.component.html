@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <!-- This is the template for leaf nodes (without children) -->
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+        <button mat-icon-button disabled></button>
+        {{node.Tree_Name}}
+      </mat-tree-node>
+  
+      <!-- This is the template for expandable nodes (with children) -->
+      <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding matTreeNodeToggle>
+        <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.Tree_Name">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        {{node.Tree_Name}}
+      </mat-tree-node>
+    </mat-tree>
+  </mat-card>
+  

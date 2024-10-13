@@ -1,35 +1,36 @@
-<mat-card>
-<mat-tab-group headerPosition="below">
-<mat-tab>
-<ng-template mat-tab-label="Home">
-    
-<mat-icon>home</mat-icon>
-</ng-template>
-</mat-tab>
-<mat-tab>
-  
-    <ng-template mat-tab-label="kkj">
-       
-    <mat-icon>category</mat-icon>
-    </ng-template>
-    </mat-tab>
-    <mat-tab>
-    <ng-template mat-tab-label="account">
-        
-        <mat-icon>person</mat-icon>
+<mat-drawer-container class="example-container" hasBackdrop="true" autosize>
+<mat-drawer #drawer mode="side" position="start" >
+<nav-options></nav-options>
+</mat-drawer>
+<mat-drawer-content>
+    <mat-card>
+        <mat-tab-group headerPosition="below">
+        <mat-tab>
+        <ng-template mat-tab-label="Home">
+            
+        <mat-icon>home</mat-icon>
         </ng-template>
         </mat-tab>
         <mat-tab>
-            <ng-template mat-tab-label="basket">
+          
+            <ng-template mat-tab-label="kkj">
                
-                <mat-icon matBadge={{cartLength}}>shopping_basket</mat-icon>
+            <mat-icon (click)="drawer.toggle()">category</mat-icon>
+            </ng-template>
+            </mat-tab>
+            <mat-tab>
+            <ng-template mat-tab-label="account">
+                
+                <mat-icon>person</mat-icon>
                 </ng-template>
                 </mat-tab>
-
+                <mat-tab>
+                    <ng-template mat-tab-label="basket">
+                       
+                        <mat-icon matBadge={{cartLength}}>shopping_basket</mat-icon>
+                        </ng-template>
+                        </mat-tab>
 </mat-tab-group>
-
-
-
-
-
 </mat-card>
+</mat-drawer-content>
+</mat-drawer-container>
