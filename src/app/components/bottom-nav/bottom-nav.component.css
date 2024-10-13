@@ -1,0 +1,8 @@
+.tabs{
+display: flex;
+flex-direction: column;
+}
+mat-icon{
+color: green;
+cursor: pointer;
+}

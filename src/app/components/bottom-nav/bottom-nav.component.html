@@ -1,0 +1,35 @@
+<mat-card>
+<mat-tab-group headerPosition="below">
+<mat-tab>
+<ng-template mat-tab-label="Home">
+    
+<mat-icon>home</mat-icon>
+</ng-template>
+</mat-tab>
+<mat-tab>
+  
+    <ng-template mat-tab-label="kkj">
+       
+    <mat-icon>category</mat-icon>
+    </ng-template>
+    </mat-tab>
+    <mat-tab>
+    <ng-template mat-tab-label="account">
+        
+        <mat-icon>person</mat-icon>
+        </ng-template>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label="basket">
+               
+                <mat-icon matBadge={{cartLength}}>shopping_basket</mat-icon>
+                </ng-template>
+                </mat-tab>
+
+</mat-tab-group>
+
+
+
+
+
+</mat-card>

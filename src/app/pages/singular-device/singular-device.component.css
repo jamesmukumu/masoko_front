@@ -55,6 +55,26 @@ margin-right: 22px;
 background-color: rgb(247,247,247);
 }
 
+/* Hide bottom nav by default */
+.bottom-nav {
+  display: none;
+}
+
+/* Show bottom nav on smaller screens (e.g., mobile) */
+@media (max-width: 901px) {
+  .bottom-nav {
+      display: block;
+      position: fixed; 
+      bottom: 0; 
+      left: 0; 
+      width: 100%; 
+      background-color: #fff; 
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+      z-index: 1000; 
+      padding: 10px 0; 
+  }
+}
+
 
 @media(max-width:900px){
 .main-info{

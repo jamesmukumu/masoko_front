@@ -1,6 +1,10 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,inject } from '@angular/core';
 import { PixelsService } from '../../services/pixels.service';
 import { Router } from '@angular/router'
+import {Store} from "@ngrx/store"
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { savetoCart } from '../../redux/actions/action.add-cart';
+
 
 @Component({
   selector: 'one-plus',
@@ -9,7 +13,8 @@ import { Router } from '@angular/router'
 })
 export class OnePlusComponent {
 onePlus:any[] = []
-constructor(private oneplus:PixelsService,private routing:Router){}
+readonly snack= inject(MatSnackBar)
+constructor(private oneplus:PixelsService,private routing:Router,private store:Store<{"cart":string}>){}
 priceFormatter(PriceString:string):string{
 return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
@@ -18,6 +23,16 @@ priceChanger(PhonePrice:string):string{
 var exaggeratedPrice = +PhonePrice - 11350
 return exaggeratedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
+Save_To_Cart(phoneSlug:string){
+  this.store.dispatch(savetoCart({items:phoneSlug}))
+  this.store.subscribe((state)=>console.log(state))
+  this.snack.open("One Plus phone added to cart","cart",{
+  verticalPosition:"top",
+  horizontalPosition:"right"
+  })
+  }
+
+
 
 
 Navigator(urlPath:String){

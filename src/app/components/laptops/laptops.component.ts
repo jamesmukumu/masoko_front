@@ -1,6 +1,11 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { LaptopsService } from '../../services/laptops.service';
+import {Store} from "@ngrx/store"
+import {Observable} from "rxjs"
+import { savetoCart } from '../../redux/actions/action.add-cart';
+import {MatSnackBar} from "@angular/material/snack-bar"
+
 
 @Component({
   selector: 'laptops',
@@ -10,6 +15,7 @@ import { LaptopsService } from '../../services/laptops.service';
 export class LaptopsComponent implements OnInit{
 laptops:any[] = []
 count?:number
+readonly snack = inject(MatSnackBar)
 
 priceFormatter(PriceString:string):string{
 return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")
@@ -24,10 +30,19 @@ Navigator(urlPath:String){
 urlPath = urlPath.replace("/","")
 this.routing.navigate([`/desired/device/${urlPath}`])
 }
+Save_To_Cart(phoneSlug:string){
+  this.store.dispatch(savetoCart({items:phoneSlug}))
+  this.store.subscribe((state)=>console.log(state))
+  this.snack.open("Laptop added to cart","cart",{
+  verticalPosition:"top",
+  horizontalPosition:"right"
+  })
+  }
+  
     
 
 
-constructor(private hp:LaptopsService,private routing:Router){}
+constructor(private hp:LaptopsService,private routing:Router,private store:Store<{"cart":string}>){}
   ngOnInit(){
     this.hp.Fetch_Laptops().then((data)=>{
       this.laptops = data.data

@@ -1,8 +1,8 @@
 <strong>Google pixels</strong>
 <div class="container-samsung">
     <div *ngFor="let samsung of pixelPhones" class="samsung">
-    <mat-card (click)="Navigator(samsung.urlPath)">
-    <img src={{samsung.thumbnail}} alt="">
+    <mat-card>
+    <img src={{samsung.thumbnail}} alt="" (click)="Navigator(samsung.urlPath)">
     <mat-card-subtitle>{{samsung.name}}</mat-card-subtitle>
     <mat-card-subtitle>KES:{{priceChanger(samsung.price)}}</mat-card-subtitle> 
      <div *ngIf="samsung.specialPrice != null">
@@ -11,7 +11,7 @@
     {{discountCalc(samsung.price,samsung.specialPrice)}}% OFF
     </p>
      </div>
-    <button mat-stroked-button style="color: green;border-color: green;">Add to cart</button>
+    <button mat-stroked-button style="color: green;border-color: green;" (click)="Save_To_Cart(samsung.urlPath)">Add to cart</button>
     <button mat-flat-button class="btn">Buy Now</button>
     </mat-card>
     

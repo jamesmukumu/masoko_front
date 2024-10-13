@@ -12,6 +12,9 @@ import {MatInputModule} from "@angular/material/input"
 import { ProgressBarModule } from 'primeng/progressbar';
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from "@angular/material/button"
+import {MatBadgeModule} from "@angular/material/badge"
+import { saveCartReducer } from './redux/reducers/reducer.save_cart';
+import { StoreModule } from '@ngrx/store';
 import {
   CarouselComponent,
   CarouselControlComponent,
@@ -30,7 +33,8 @@ import { PixelsComponent } from './components/pixels/pixels.component';
 import { SingularDeviceComponent } from './pages/singular-device/singular-device.component';
 import {MatTooltipModule} from "@angular/material/tooltip"
 import {MatTabsModule} from "@angular/material/tabs";
-import { OnePlusComponent } from './components/one-plus/one-plus.component'
+import { OnePlusComponent } from './components/one-plus/one-plus.component';
+import { BottomNavComponent } from './components/bottom-nav/bottom-nav.component'
 
 
 
@@ -46,12 +50,14 @@ import { OnePlusComponent } from './components/one-plus/one-plus.component'
     FooterComponent,
     PixelsComponent,
     SingularDeviceComponent,
-    OnePlusComponent
+    OnePlusComponent,
+    BottomNavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
   MatProgressBarModule,
+  StoreModule.forRoot({"cart":saveCartReducer}),
     MatButtonModule,
     MatCardModule,
     ProgressBarModule,
@@ -59,6 +65,7 @@ import { OnePlusComponent } from './components/one-plus/one-plus.component'
     MatTabsModule,
     FormsModule,
     MatInputModule,
+    MatBadgeModule,
     CarouselComponent,
     CarouselControlComponent,
     CarouselInnerComponent,

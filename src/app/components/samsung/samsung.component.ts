@@ -1,6 +1,9 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,inject } from '@angular/core';
 import { PixelsService } from '../../services/pixels.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { savetoCart } from '../../redux/actions/action.add-cart';
+import {Store} from "@ngrx/store"
 
 
 @Component({
@@ -10,13 +13,22 @@ import { Router } from '@angular/router';
 })
 export class SamsungComponent implements OnInit {
 samsungPhone:any[] = []
-constructor(private phone:PixelsService,private routing:Router){}
-
+constructor(private phone:PixelsService,private routing:Router,private store:Store<{"cart":string}>){}
+readonly snack = inject(MatSnackBar)
 Navigator(urlPath:String){
 urlPath = urlPath.replace("/","")
 this.routing.navigate([`/desired/device/${urlPath}`])
 }
-      
+   
+
+Save_To_Cart(phoneSlug:string){
+  this.store.dispatch(savetoCart({items:phoneSlug}))
+  this.store.subscribe((state)=>console.log(state))
+  this.snack.open("Vivo phone added to cart","cart",{
+  verticalPosition:"top",
+  horizontalPosition:"right"
+  })
+}
   
 
 priceFormatter(PriceString:string):string{

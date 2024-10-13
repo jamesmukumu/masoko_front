@@ -1,8 +1,8 @@
 <strong>Apple Iphones</strong>
 <div class="container-samsung">
     <div *ngFor="let iphone of iphones" class="samsung">
-    <mat-card (click)="Navigator(iphone.urlPath)">
-    <img src={{iphone.thumbnail}} alt="">
+    <mat-card >
+    <img src={{iphone.thumbnail}} alt="" (click)="Navigator(iphone.urlPath)">
     <mat-card-subtitle>{{iphone.name}}</mat-card-subtitle>
     <mat-card-subtitle>KES:{{priceChanger(iphone.price)}}</mat-card-subtitle> 
      <div *ngIf="iphone.specialPrice != null">
@@ -11,7 +11,7 @@
     {{discountCalc(iphone.price,iphone.specialPrice)}}% OFF
     </p>
      </div>
-    <button mat-stroked-button style="color: green;border-color: green;">Add to cart</button>
+    <button mat-stroked-button style="color: green;border-color: green;" (click)="Save_To_Cart(iphone.urlPath)">Add to cart</button>
     <button mat-flat-button class="btn">Buy Now</button>
     </mat-card>
     

@@ -1,8 +1,9 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,inject } from '@angular/core';
 import { PixelsService } from '../../services/pixels.service';
 import { Router } from '@angular/router';
-
-
+import { savetoCart } from '../../redux/actions/action.add-cart';
+import {Store} from "@ngrx/store"
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'vivo',
@@ -11,8 +12,16 @@ import { Router } from '@angular/router';
 })
 export class VivoComponent implements OnInit{
 vivoPhones:any[] = []
-constructor(private phone:PixelsService,private routing:Router){}
-
+readonly snack  = inject(MatSnackBar) 
+constructor(private phone:PixelsService,private routing:Router,private store:Store<{"cart":string}>){}
+Save_To_Cart(phoneSlug:string){
+  this.store.dispatch(savetoCart({items:phoneSlug}))
+  this.store.subscribe((state)=>console.log(state))
+  this.snack.open("Samsung phone added to cart","cart",{
+  verticalPosition:"top",
+  horizontalPosition:"right"
+  })
+}
 
 
 priceFormatter(PriceString:string):string{
