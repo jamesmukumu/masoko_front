@@ -1,79 +1,96 @@
 <mat-card>
     <header></header>
   
-    <div class="checkout-container" >
-       <div class="checkout-info" *ngIf="finalProducts.length != 0">
-        <mat-card class="items" *ngFor="let device of finalProducts">
-          <div class="item-details">
-            <div class="item-image">
-              <img [src]="device.thumbnail" alt="Device Image">
-            </div>
-            <div class="item-description">
-              <mat-card-subtitle>{{device.name}}</mat-card-subtitle>
-              <mat-card-title>KES: {{calculatorEachPrice(device.price)}}</mat-card-title>
-            </div>
-            <div class="item-actions">
-              <mat-icon matTooltip="remove from cart" style="color: green;" (click)="Remove_Cart(device.urlPath)">delete</mat-icon>
-              <div class="stack-quantity">
-                <button mat-icon-button matTooltip="Increase quantity by 1" (click)="increaseQuantity()">
-                  <mat-icon>add</mat-icon>
-                </button>
-                <mat-form-field>
-                  <input type="number" matInput [(ngModel)]="defaultQuantity" />
-                </mat-form-field>
-                <button mat-icon-button matTooltip="Decrease quantity by 1">
-                  <mat-icon>remove</mat-icon>
-                </button>
-              </div>
-            </div>
-          </div>
-          <mat-divider></mat-divider>
-        </mat-card>
-      </div>
+  <mat-stepper>
+<mat-step>
+<ng-template matStepLabel>Cart</ng-template>
+  <div class="checkout-container" >
+    <div class="checkout-info" *ngIf="finalProducts.length != 0">
+     <mat-card class="items" *ngFor="let device of finalProducts">
+       <div class="item-details">
+         <div class="item-image">
+           <img [src]="device.thumbnail" alt="Device Image">
+         </div>
+         <div class="item-description">
+           <mat-card-subtitle>{{device.name}}</mat-card-subtitle>
+           <mat-card-title>KES: {{calculatorEachPrice(device.price)}}</mat-card-title>
+         </div>
+         <div class="item-actions">
+           <mat-icon matTooltip="remove from cart" style="color: green;" (click)="Remove_Cart(device.urlPath)">delete</mat-icon>
+           <div class="stack-quantity">
+             <button mat-icon-button matTooltip="Increase quantity by 1" (click)="increaseQuantity()">
+               <mat-icon>add</mat-icon>
+             </button>
+             <mat-form-field>
+               <input type="number" matInput [(ngModel)]="defaultQuantity" />
+             </mat-form-field>
+             <button mat-icon-button matTooltip="Decrease quantity by 1">
+               <mat-icon>remove</mat-icon>
+             </button>
+           </div>
+         </div>
+       </div>
+       <mat-divider></mat-divider>
+     </mat-card>
+   </div>
 
-      <div class="checkout-container" *ngIf="finalProducts.length == 0">
-        <mat-card>
-          <mat-card-header>
-           <mat-card-title>Your Shopping cart is currently empty</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <mat-card-subtitle>Do more shopping then come back</mat-card-subtitle>
-          </mat-card-content>
-          <button mat-raised-button style="margin-top: 30px;background-color: green;color: white;">Back to shopping</button>
-        </mat-card>
-      </div>
-  
+   <div class="checkout-container" *ngIf="finalProducts.length == 0">
+     <mat-card>
+       <mat-card-header>
+        <mat-card-title>Your Shopping cart is currently empty</mat-card-title>
+       </mat-card-header>
+       <mat-card-content>
+         <mat-card-subtitle>Do more shopping then come back</mat-card-subtitle>
+       </mat-card-content>
+       <button mat-raised-button style="margin-top: 30px;background-color: green;color: white;">Back to shopping</button>
+     </mat-card>
+   </div>
 
-      <div class="checkout-summary">
-        <mat-card class="to-checkout">
-          <mat-card-header>
-            <mat-card-title>CART SUMMARY</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <mat-list>
-              <mat-list-item>Subtotal: KES {{totalPriceString}} </mat-list-item>
-              <mat-divider></mat-divider>
-              <mat-list-item>Shipping & Handling: KES 150</mat-list-item>
-              <mat-divider></mat-divider>
-              <mat-list-item>Grand Total: KES {{grandTotal}} </mat-list-item>
-            </mat-list>
-          </mat-card-content>
-          <mat-card-footer>
-            <button mat-raised-button style="background-color: green; color: white;" >Proceed to Checkout</button>
-          </mat-card-footer>
-          <mat-divider></mat-divider>
-          <div class="delivery-timelines">
-            <mat-list>
-              <mat-list-item>Same day delivery</mat-list-item>
-              <mat-list-item>Saturday - Delivery is between 8 AM and 12 PM</mat-list-item>
-              <mat-list-item>Sunday and Public Holidays - Delivery on Next Day</mat-list-item>
-              <mat-list-item>Outside Nairobi - Delivery on Next Business Day</mat-list-item>
-            </mat-list>
-          </div>
-        </mat-card>
-      </div>
-    </div>
-  
+
+   <div class="checkout-summary">
+     <mat-card class="to-checkout">
+       <mat-card-header>
+         <mat-card-title>CART SUMMARY</mat-card-title>
+       </mat-card-header>
+       <mat-card-content>
+         <mat-list>
+           <mat-list-item>Subtotal: KES {{totalPriceString}} </mat-list-item>
+           <mat-divider></mat-divider>
+           <mat-list-item>Shipping & Handling: KES 150</mat-list-item>
+           <mat-divider></mat-divider>
+           <mat-list-item>Grand Total: KES {{grandTotal}} </mat-list-item>
+         </mat-list>
+       </mat-card-content>
+       <mat-card-footer>
+         <button mat-raised-button style="background-color: green; color: white;" matStepperNext>Proceed to Checkout</button>
+       </mat-card-footer>
+       <mat-divider></mat-divider>
+       <div class="delivery-timelines">
+         <mat-list>
+           <mat-list-item>Same day delivery</mat-list-item>
+           <mat-list-item>Saturday - Delivery is between 8 AM and 12 PM</mat-list-item>
+           <mat-list-item>Sunday and Public Holidays - Delivery on Next Day</mat-list-item>
+           <mat-list-item>Outside Nairobi - Delivery on Next Business Day</mat-list-item>
+         </mat-list>
+       </div>
+     </mat-card>
+   </div>
+ </div>
+
+</mat-step>
+
+
+
+
+<mat-step >
+  <ng-template matStepLabel>Delivery and Payment</ng-template>
+</mat-step>
+
+<mat-step>
+  <ng-template matStepLabel>Confimartion of order</ng-template>
+</mat-step>
+
+  </mat-stepper>
     <footer></footer>
   </mat-card>
   

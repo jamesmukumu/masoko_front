@@ -18,6 +18,7 @@ import {MatSidenavModule} from "@angular/material/sidenav"
 import {MatListModule} from "@angular/material/list"
 import { saveCartReducer } from './redux/reducers/reducer.save_cart';
 import {MatTreeModule} from "@angular/material/tree"
+import {MatStepperModule} from "@angular/material/stepper"
 import { StoreModule,ActionReducerMap,MetaReducer,ActionReducer } from '@ngrx/store';
 import {
   CarouselComponent,
@@ -86,6 +87,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     MatButtonModule,
     MatCardModule,
     ProgressBarModule,
+    MatStepperModule,
     MatTooltipModule,
     MatTabsModule,
     FormsModule,
