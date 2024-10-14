@@ -27,7 +27,7 @@
                 <mat-tab>
                     <ng-template mat-tab-label="basket">
                        
-                        <mat-icon matBadge={{cartLength}}>shopping_basket</mat-icon>
+                        <mat-icon matBadge={{cartLength}} (click)="go_cart()">shopping_basket</mat-icon>
                         </ng-template>
                         </mat-tab>
 </mat-tab-group>

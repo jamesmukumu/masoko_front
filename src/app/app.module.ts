@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HeaderComponent } from './components/header/header.component';
+import {MatDividerModule} from "@angular/material/divider"
 import {MatCardModule} from "@angular/material/card"
 import {MatIconModule} from "@angular/material/icon"
 import {MatInputModule} from "@angular/material/input"
@@ -14,9 +15,10 @@ import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from "@angular/material/button"
 import {MatBadgeModule} from "@angular/material/badge"
 import {MatSidenavModule} from "@angular/material/sidenav"
+import {MatListModule} from "@angular/material/list"
 import { saveCartReducer } from './redux/reducers/reducer.save_cart';
 import {MatTreeModule} from "@angular/material/tree"
-import { StoreModule } from '@ngrx/store';
+import { StoreModule,ActionReducerMap,MetaReducer,ActionReducer } from '@ngrx/store';
 import {
   CarouselComponent,
   CarouselControlComponent,
@@ -37,7 +39,24 @@ import {MatTooltipModule} from "@angular/material/tooltip"
 import {MatTabsModule} from "@angular/material/tabs";
 import { OnePlusComponent } from './components/one-plus/one-plus.component';
 import { BottomNavComponent } from './components/bottom-nav/bottom-nav.component';
-import { NavOptionsComponent } from './components/nav-options/nav-options.component'
+import { NavOptionsComponent } from './components/nav-options/nav-options.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component'
+import { localStorageSync } from 'ngrx-store-localstorage';
+
+
+
+const reducers: ActionReducerMap<any> = {
+  cart: saveCartReducer,
+ 
+};
+
+
+export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
+  return localStorageSync({ keys: ['cart'], rehydrate: true })(reducer);  
+}
+
+
+const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 
 
 
@@ -55,13 +74,15 @@ import { NavOptionsComponent } from './components/nav-options/nav-options.compon
     SingularDeviceComponent,
     OnePlusComponent,
     BottomNavComponent,
-    NavOptionsComponent
+    NavOptionsComponent,
+    CheckoutComponent,
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
   MatProgressBarModule,
-  StoreModule.forRoot({"cart":saveCartReducer}),
+  StoreModule.forRoot(reducers, { metaReducers }),
     MatButtonModule,
     MatCardModule,
     ProgressBarModule,
@@ -69,9 +90,11 @@ import { NavOptionsComponent } from './components/nav-options/nav-options.compon
     MatTabsModule,
     FormsModule,
     MatInputModule,
+    MatDividerModule,
     MatBadgeModule,
     MatTreeModule,
     CarouselComponent,
+    MatListModule,
     MatSidenavModule,
     CarouselControlComponent,
     CarouselInnerComponent,
@@ -88,6 +111,10 @@ import { NavOptionsComponent } from './components/nav-options/nav-options.compon
   path:"",
   component:HomeComponent
 },
+{
+  path:"cart",
+  component:CheckoutComponent
+}
 
     ])
   ],
