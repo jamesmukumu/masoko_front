@@ -81,11 +81,18 @@
       max-width: 100%;
     }
 
-
+    mat-accordion, mat-card, .checkout-container, .checkout-summary, .checkout-summary-2, mat-expansion-panel, mat-card-content {
+      width: 100%;
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Ensure no extra padding */
+      box-sizing: border-box; /* Include padding in width calculations */
+  }
+  
     .checkout-complete{
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1px;
+      max-width: 100vw;
+      min-width: 100%;
     }
   
     .checkout-info {
@@ -93,6 +100,10 @@
     }
   
     .checkout-summary {
+      width: 100%; 
+      margin-top: 20px;
+    }
+    .checkout-summary-2 {
       width: 100%; 
       margin-top: 20px;
     }

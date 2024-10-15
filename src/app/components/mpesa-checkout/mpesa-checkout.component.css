@@ -4,3 +4,11 @@
 .form-field {
     width: 100%;
   }
+  @media(max-width:900px){
+    mat-expansion-panel{
+        width: 100vw; 
+      }
+      mat-expansion-panel-header {
+        width: 100vw;
+      }
+  }

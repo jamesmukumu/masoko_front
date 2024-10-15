@@ -2,10 +2,10 @@
 <mat-expansion-panel>
 <mat-expansion-panel-header>
 <mat-panel-title>
-<img src="../../../assets/icons8-mpesa-96.png" style="height: 100px;" alt="">
+<img src="../../../assets/icons8-mpesa-96.png"  alt="">
 </mat-panel-title>
 <mat-panel-description>
-Simply pay with Mpesa-Express
+Pay via mpesa
 </mat-panel-description>
 </mat-expansion-panel-header>
 <mat-card>
@@ -29,7 +29,7 @@ Simply pay with Mpesa-Express
     
     </mat-card-content>
     <mat-card-actions style="align-items: center;">
-   <button mat-raised-button style="background-color: green;color: white;" *ngIf="!phone.invalid">Place Order</button>
+   <button mat-raised-button style="background-color: green;color: white;" *ngIf="!phone.invalid" (click)="initatePay()">Place Order</button>
     </mat-card-actions>
     
     </mat-card>

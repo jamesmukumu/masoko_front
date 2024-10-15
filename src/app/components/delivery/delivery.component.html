@@ -1,70 +1,67 @@
-
-
-
-
+<mat-card class="delivery">
   <mat-accordion>
-  
     <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>Delivery Informartion</mat-panel-title>
-        <mat-panel-description>
-          Please fill out your delivery info to continue
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <mat-card>
-        <mat-card-title>
-          Please enter your desired delivery location
-        </mat-card-title>
-        <mat-card-content>
-          <div class="form-grid">
-           
-            <mat-form-field class="form-field">
-              <mat-label>Enter your first name</mat-label>
-              <input type="text" matInput #firstname="ngModel" [(ngModel)]="First_Name" required min="1" minlength="1">
-              <mat-error *ngIf="firstname.touched && firstname.invalid">
-               Complete this field as required
-              </mat-error>
-            </mat-form-field>
-       
-            
-            <mat-form-field class="form-field">
-              <mat-label>Enter your last name</mat-label>
-              <input type="text" matInput [(ngModel)]="Second_Name" #second="ngModel" required min="1" minlength="1">
-              <mat-error *ngIf="second.touched && second.invalid">
-                Complete this field as required
-              </mat-error>
-            </mat-form-field>
-      
-            <mat-form-field class="form-field">
-              <mat-label>Enter your phone number</mat-label>
-              <input type="text" matInput [(ngModel)]="Phone" #phone="ngModel" required maxlength="10" minlength="10" (ngModelChange)="see_phone(phone.value)">
-              <mat-error *ngIf="phone.invalid && phone.touched">
-             phone format is not recognized 
-              </mat-error>
-            </mat-form-field>
-      
-       
-            <mat-form-field class="form-field">
-              <mat-label>Pick your location</mat-label>
-              <mat-select [(ngModel)]="Location" required #location="ngModel">
-                <mat-option *ngFor="let region of Regions" [value]="region">{{region}}</mat-option>
-                <mat-error *ngIf="location.touched && location.invalid">
-                Location must be provided
+        <mat-expansion-panel-header>
+          <mat-panel-title>Delivery Informartion</mat-panel-title>
+          <mat-panel-description>
+          delivery info
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-card>
+          <mat-card-title>
+            Please enter your desired delivery location
+          </mat-card-title>
+          <mat-card-content>
+            <div class="form-grid">
+             
+              <mat-form-field class="form-field">
+                <mat-label>Enter your first name</mat-label>
+                <input type="text" matInput #firstname="ngModel" [(ngModel)]="First_Name" required min="1" minlength="1">
+                <mat-error *ngIf="firstname.touched && firstname.invalid">
+                 Complete this field as required
                 </mat-error>
-              </mat-select>
-            </mat-form-field>
+              </mat-form-field>
+         
+              
+              <mat-form-field class="form-field">
+                <mat-label>Enter your last name</mat-label>
+                <input type="text" matInput [(ngModel)]="Second_Name" #second="ngModel" required min="1" minlength="1">
+                <mat-error *ngIf="second.touched && second.invalid">
+                  Complete this field as required
+                </mat-error>
+              </mat-form-field>
+        
+              <mat-form-field class="form-field">
+                <mat-label>Enter your phone number</mat-label>
+                <input type="text" matInput [(ngModel)]="Phone" #phone="ngModel" required maxlength="10" minlength="10" (ngModelChange)="see_phone(phone.value)">
+                <mat-error *ngIf="phone.invalid && phone.touched">
+               phone format is not recognized 
+                </mat-error>
+              </mat-form-field>
+        
+         
+              <mat-form-field class="form-field">
+                <mat-label>Pick your location</mat-label>
+                <mat-select [(ngModel)]="Location" required #location="ngModel">
+                  <mat-option *ngFor="let region of Regions" [value]="region">{{region}}</mat-option>
+                  <mat-error *ngIf="location.touched && location.invalid">
+                  Location must be provided
+                  </mat-error>
+                </mat-select>
+              </mat-form-field>
+        
+              <mat-form-field class="form-field full-width">
+                <mat-label>Customer notes</mat-label>
+                <textarea matInput rows="5" placeholder="This could be street address, building name, suite number, apartment or any other description that can help with delivery"></textarea>
+              </mat-form-field>
+            </div>
+          </mat-card-content>
+        
+          <mat-card-actions>
+            <button mat-flat-button style="background-color: green; color: white;" *ngIf="!location.invalid && !phone.invalid && !firstname.invalid">Select Delivery Address</button>
+          </mat-card-actions>
+        </mat-card>
       
-            <mat-form-field class="form-field full-width">
-              <mat-label>Customer notes</mat-label>
-              <textarea matInput rows="5" placeholder="This could be street address, building name, suite number, apartment or any other description that can help with delivery"></textarea>
-            </mat-form-field>
-          </div>
-        </mat-card-content>
-      
-        <mat-card-actions>
-          <button mat-flat-button style="background-color: green; color: white;" *ngIf="!location.invalid && !phone.invalid && !firstname.invalid">Select Delivery Address</button>
-        </mat-card-actions>
-      </mat-card>
-    
-    </mat-expansion-panel>
-  </mat-accordion>
+      </mat-expansion-panel>
+    </mat-accordion>
+</mat-card>
