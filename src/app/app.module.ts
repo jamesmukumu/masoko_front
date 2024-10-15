@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatProgressBarModule} from "@angular/material/progress-bar"
 import { AppRoutingModule } from './app-routing.module';
+import {MatSelectModule} from "@angular/material/select"
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HeaderComponent } from './components/header/header.component';
 import {MatDividerModule} from "@angular/material/divider"
+import {MatExpansionModule} from "@angular/material/expansion"
 import {MatCardModule} from "@angular/material/card"
 import {MatIconModule} from "@angular/material/icon"
 import {MatInputModule} from "@angular/material/input"
@@ -43,6 +45,8 @@ import { BottomNavComponent } from './components/bottom-nav/bottom-nav.component
 import { NavOptionsComponent } from './components/nav-options/nav-options.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component'
 import { localStorageSync } from 'ngrx-store-localstorage';
+import { DeliveryComponent } from './components/delivery/delivery.component';
+import { MpesaCheckoutComponent } from './components/mpesa-checkout/mpesa-checkout.component';
 
 
 
@@ -77,6 +81,8 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     BottomNavComponent,
     NavOptionsComponent,
     CheckoutComponent,
+    DeliveryComponent,
+    MpesaCheckoutComponent,
   
   ],
   imports: [
@@ -93,7 +99,9 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     FormsModule,
     MatInputModule,
     MatDividerModule,
+    MatSelectModule,
     MatBadgeModule,
+    MatExpansionModule,
     MatTreeModule,
     CarouselComponent,
     MatListModule,

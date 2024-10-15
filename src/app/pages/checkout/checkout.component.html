@@ -82,9 +82,48 @@
 
 
 
-<mat-step >
-  <ng-template matStepLabel>Delivery and Payment</ng-template>
+<mat-step>
+<ng-template matStepLabel>Delivery and Payment</ng-template>
+<mat-card class="checkout-complete">
+  <div>
+    <delivery></delivery>
+ <div style="margin-top: 30px;">
+  <mpesa-checkout [total]="grandTotal"></mpesa-checkout>
+ </div>
+  </div>
+  <div class="checkout-summary-2">
+    <mat-card class="to-checkout">
+      <mat-card-header>
+        <mat-card-title>CART SUMMARY</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>Subtotal: KES {{totalPriceString}} </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Shipping & Handling: KES 150</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Grand Total: KES {{grandTotal}} </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+      <mat-card-footer>
+        <button mat-raised-button style="background-color: green; color: white;" matStepperPrevious>Back to cart</button>
+      </mat-card-footer>
+      <mat-divider></mat-divider>
+      <div class="delivery-timelines">
+        <mat-list>
+          <mat-list-item>Same day delivery</mat-list-item>
+          <mat-list-item>Saturday - Delivery is between 8 AM and 12 PM</mat-list-item>
+          <mat-list-item>Sunday and Public Holidays - Delivery on Next Day</mat-list-item>
+          <mat-list-item>Outside Nairobi - Delivery on Next Business Day</mat-list-item>
+        </mat-list>
+      </div>
+    </mat-card>
+  </div>
+</mat-card>
+
 </mat-step>
+
+
 
 <mat-step>
   <ng-template matStepLabel>Confimartion of order</ng-template>

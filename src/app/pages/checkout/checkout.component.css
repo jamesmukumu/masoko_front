@@ -9,6 +9,11 @@
     justify-content: space-between;
     padding: 20px;
   }
+  .checkout-complete{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 16px;
+  }
   
   .checkout-info {
     width: 60%;
@@ -74,6 +79,13 @@
       align-items: center;
       padding: 10px;
       max-width: 100%;
+    }
+
+
+    .checkout-complete{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
     }
   
     .checkout-info {

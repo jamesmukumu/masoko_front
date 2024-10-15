@@ -14,7 +14,10 @@ background: -webkit-linear-gradient(to right, #45B649, #DCE35B);  /* Chrome 10-2
 background: linear-gradient(to right, #45B649, #DCE35B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
-
+.head img{
+width: 300px;
+height: 300px;
+}
 mat-drawer{
 width: 350px;
 background: #DCE35B;  /* fallback for old browsers */
@@ -49,6 +52,10 @@ min-width: 55vw;
 
 
 @media(max-width:900px){
+    .head img{
+        height: 70px;
+        width: 70px;
+    }
 .categories-large{
 display: none;
 }
