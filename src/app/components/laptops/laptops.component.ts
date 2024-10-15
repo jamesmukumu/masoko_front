@@ -26,6 +26,10 @@ var exaggeratedPrice = +actualPrice - 20500
 var clientPrice = exaggeratedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
 return clientPrice
 }
+cart(deviceSlug:string){
+  this.Save_To_Cart(deviceSlug)
+  this.routing.navigate(["/cart"])
+  }
 Navigator(urlPath:String){
 urlPath = urlPath.replace("/","")
 this.routing.navigate([`/desired/device/${urlPath}`])

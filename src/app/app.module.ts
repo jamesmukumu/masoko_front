@@ -12,6 +12,7 @@ import {MatExpansionModule} from "@angular/material/expansion"
 import {MatCardModule} from "@angular/material/card"
 import {MatIconModule} from "@angular/material/icon"
 import {MatInputModule} from "@angular/material/input"
+import {MatDialogModule} from "@angular/material/dialog"
 import { ProgressBarModule } from 'primeng/progressbar';
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from "@angular/material/button"
@@ -47,6 +48,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component'
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { DeliveryComponent } from './components/delivery/delivery.component';
 import { MpesaCheckoutComponent } from './components/mpesa-checkout/mpesa-checkout.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 
@@ -83,15 +85,17 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     CheckoutComponent,
     DeliveryComponent,
     MpesaCheckoutComponent,
+    LoaderComponent,
   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule,  
   MatProgressBarModule,
   StoreModule.forRoot(reducers, { metaReducers }),
     MatButtonModule,
     MatCardModule,
+    MatDialogModule,
     ProgressBarModule,
     MatStepperModule,
     MatTooltipModule,

@@ -19,7 +19,10 @@ constructor(private pixels:PixelsService,private routing:Router,private store:St
 priceFormatter(PriceString:string):string{
   return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
-
+cart(deviceSlug:string){
+  this.Save_To_Cart(deviceSlug)
+  this.routing.navigate(["/cart"])
+  }
 
 Save_To_Cart(phoneSlug:string){
   this.store.dispatch(savetoCart({items:phoneSlug}))

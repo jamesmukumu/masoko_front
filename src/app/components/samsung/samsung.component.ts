@@ -19,7 +19,10 @@ Navigator(urlPath:String){
 urlPath = urlPath.replace("/","")
 this.routing.navigate([`/desired/device/${urlPath}`])
 }
-   
+cart(deviceSlug:string){
+  this.Save_To_Cart(deviceSlug)
+  this.routing.navigate(["/cart"])
+  }
 
 Save_To_Cart(phoneSlug:string){
   this.store.dispatch(savetoCart({items:phoneSlug}))

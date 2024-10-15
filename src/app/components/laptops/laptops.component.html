@@ -6,7 +6,7 @@
 <mat-card-subtitle>{{laptop.name}}</mat-card-subtitle>
 <mat-card-subtitle>KES:{{FoolsPrice(laptop.price)}}</mat-card-subtitle>
 <button mat-stroked-button style="color: green;border-color: green;" (click)="Save_To_Cart(laptop.urlPath)">Add to cart</button>
-<button mat-flat-button class="btn">Buy Now</button>
+<button mat-flat-button class="btn" (click)="cart(laptop.urlPath)">Buy Now</button>
 </mat-card>
 
 

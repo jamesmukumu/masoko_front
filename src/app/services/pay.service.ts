@@ -17,10 +17,7 @@ export class PayService {
         'https://ajira-production.up.railway.app/go/to/pay',
         payload
       );
-      var { message, url } = resp.data;
-      if (message === 'Payment initiated') {
-        window.location.href = url;
-      }
+      return resp.data;
     } catch (err) {
       console.log(err);
     }

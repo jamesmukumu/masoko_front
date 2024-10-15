@@ -39,7 +39,10 @@ priceFormatter(PriceString:string):string{
   return exaggeratedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
   }
 
-
+cart(deviceSlug:string){
+this.Save_To_Cart(deviceSlug)
+this.routing.navigate(["/cart"])
+}
   Navigator(urlPath:String){
 urlPath = urlPath.replace("/","")
 this.routing.navigate([`/desired/device/${urlPath}`])

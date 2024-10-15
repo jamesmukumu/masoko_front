@@ -23,7 +23,10 @@ Save_To_Cart(phoneSlug:string){
   })
 }
 
-
+cart(deviceSlug:string){
+  this.Save_To_Cart(deviceSlug)
+  this.routing.navigate(["/cart"])
+  }
 priceFormatter(PriceString:string):string{
   return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }

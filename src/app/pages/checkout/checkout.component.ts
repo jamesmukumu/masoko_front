@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { SingularDeviceService } from '../../services/singular-device.service';
 import { delete_Cart } from '../../redux/actions/action.delete-cart';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'checkout',
   templateUrl: './checkout.component.html',
@@ -18,12 +18,12 @@ finalProducts:any[] = []
 totalPrice:number= 0
 totalPriceString?:string
 grandTotal?:string
-constructor(private dector:ChangeDetectorRef,private store:Store<{"cart":string}>,private device:SingularDeviceService){}
+constructor(private router:Router,private dector:ChangeDetectorRef,private store:Store<{"cart":string}>,private device:SingularDeviceService){}
 priceFormatter(PriceString:string):string{
 return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
 
-increaseQuantity(){
+increaseQuantity(){ 
 this.defaultQuantity += 1
 }
 
@@ -33,6 +33,9 @@ newPrice = newPrice * this.defaultQuantity
 return newPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
 
+Main(){
+this.router.navigate(["/"])
+}
 Remove_Cart(device_UrlPath:string){
 this.store.dispatch(
 delete_Cart({item:device_UrlPath})

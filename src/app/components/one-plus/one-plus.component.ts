@@ -18,6 +18,10 @@ constructor(private oneplus:PixelsService,private routing:Router,private store:S
 priceFormatter(PriceString:string):string{
 return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
+cart(deviceSlug:string){
+  this.Save_To_Cart(deviceSlug)
+  this.routing.navigate(["/cart"])
+  }
   
 priceChanger(PhonePrice:string):string{
 var exaggeratedPrice = +PhonePrice - 11350
