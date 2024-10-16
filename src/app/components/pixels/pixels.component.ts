@@ -34,7 +34,7 @@ Save_To_Cart(phoneSlug:string){
 }
 
 priceChanger(PhonePrice:string):string{
-var exaggeratedPrice = +PhonePrice - 7750
+var exaggeratedPrice = +PhonePrice
 return exaggeratedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
 
@@ -51,7 +51,7 @@ Navigator(urlPath:String){
       
   
 ngOnInit(){
-this.pixels.Fetch_Phone_Brands("google").then((data)=>{
+this.pixels.Fetch_Phone_Brands("google-pixel").then((data)=>{
 this.pixelPhones = data.phonesFetched
 }).catch((err)=>console.log(err))
 }

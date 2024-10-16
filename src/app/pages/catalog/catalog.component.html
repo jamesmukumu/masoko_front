@@ -1,0 +1,31 @@
+<mat-card>
+<header></header>
+<strong>{{devices[0].identifierName}}</strong>
+<div class="container-samsung">
+    <div *ngFor="let device of devices" class="samsung">
+    <mat-card >
+    <img src={{device.thumbnail}} alt="" (click)="Navigator(device.urlPath)">
+    <mat-card-subtitle>{{device.name}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="device.specialPrice == null">KES:{{priceChanger(device.price)}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="device.specialPrice != null">KES:{{priceChanger(device.specialPrice)}}</mat-card-subtitle>  
+     <div *ngIf="device.specialPrice != null">
+    <del>KES:{{device.price}}</del>
+    <p style="color: red;font-weight: bolder;">
+    {{discountCalc(device.price,device.specialPrice)}}% OFF
+    </p>
+     </div>
+    <button mat-stroked-button style="color: green;border-color: green;" (click)="Save_To_Cart(device.urlPath)">Add to cart</button>
+    <button mat-flat-button class="btn" (click)="cart(device.urlPath)">Buy Now</button>
+    </mat-card>
+    
+    
+    </div>
+    
+    
+    </div>
+
+<footer></footer>
+<div class="bottom-nav">
+    <bottom-nav></bottom-nav>
+    </div>
+</mat-card>

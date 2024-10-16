@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container-samsung {
+    text-align: center;
+  }
+  
+  .container-samsung {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px; 
+    padding: 10px;
+  }
+  
+  mat-card-subtitle{
+padding-top: 20px;
+
+  }
+  @media (max-width: 768px) {
+    .bottom-nav {
+      display: block;
+      position: fixed; 
+      bottom: 0; 
+      left: 0; 
+      width: 100%; 
+      background-color: #fff; 
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+      z-index: 1000; 
+      padding: 10px 0; 
+  }
+
+  .container-samsung {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 0px;
+  }
+    
+    .samsung{
+      flex: 0 0 auto; 
+      scroll-snap-align: center;
+      width: 200px; 
+    }
+  }
+  
+  mat-card {
+    width: 100%;
+    height: fit-content;
+  }
+  
+  mat-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  strong {
+    display: -webkit-box;
+    -webkit-line-clamp: 1; 
+    -webkit-box-orient: vertical;
+    max-lines: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  
+  button {
+    margin-top: 30px;
+  }
+  
+  .btn {
+    color: white;
+    background: #DCE35B; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #45B649, #DCE35B); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #45B649, #DCE35B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  

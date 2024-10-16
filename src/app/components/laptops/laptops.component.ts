@@ -22,7 +22,7 @@ return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
 
 FoolsPrice(actualPrice:string){
-var exaggeratedPrice = +actualPrice - 20500
+var exaggeratedPrice = +actualPrice 
 var clientPrice = exaggeratedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
 return clientPrice
 }

@@ -36,7 +36,7 @@ this.routing.navigate([`/desired/device/${urlPath}`])
 }
 
 priceChanger(PhonePrice:string):string{
-var exaggeratedPrice = +PhonePrice - 4350
+var exaggeratedPrice = +PhonePrice 
 return exaggeratedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
 

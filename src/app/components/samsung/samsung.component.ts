@@ -39,7 +39,7 @@ priceFormatter(PriceString:string):string{
 }
 
 priceChanger(PhonePrice:string):string{
-var exaggeratedPrice = +PhonePrice - 3350
+var exaggeratedPrice = +PhonePrice
 return exaggeratedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
 

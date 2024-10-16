@@ -3,10 +3,12 @@
       <!-- This is the template for leaf nodes (without children) -->
       <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
         <button mat-icon-button disabled></button>
+       <p (click)="go(node.identifierName)">
         {{node.Tree_Name}}
+       
+       </p>
       </mat-tree-node>
   
-      <!-- This is the template for expandable nodes (with children) -->
       <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding matTreeNodeToggle>
         <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.Tree_Name">
           <mat-icon class="mat-icon-rtl-mirror">

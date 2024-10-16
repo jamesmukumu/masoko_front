@@ -24,7 +24,7 @@ cart(deviceSlug:string){
   }
   
 priceChanger(PhonePrice:string):string{
-var exaggeratedPrice = +PhonePrice - 11350
+var exaggeratedPrice = +PhonePrice 
 return exaggeratedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
 Save_To_Cart(phoneSlug:string){

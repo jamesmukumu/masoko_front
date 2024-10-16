@@ -36,22 +36,11 @@ KES: {{priceChanger(deviceInformation.price)}}
 </div>
 
 <p>Quantity:</p>
-<div class="stack-quantity">
-<button mat-icon-button matTooltip="Increase quantity by 1" (click)="increaseQuantity()">
-<mat-icon>add</mat-icon>
-</button>
 
-<mat-form-field>
-<input type="text" [(ngModel)]="initialQuantity" matInput/>
-</mat-form-field>
-<button mat-icon-button matTooltip="Decrease quantity by 1" (click)="decreaseQuantity()">
-<mat-icon>remove</mat-icon>
-</button>
-</div>
 
 <mat-card class="add-buy">
-<button mat-stroked-button style="color: green;border-color: green;">Add to cart</button>
-<button mat-flat-button class="btnm">Buy Now</button>
+<button mat-stroked-button style="color: green;border-color: green;" (click)="Save_To_Cart(deviceInformation.urlPath)">Add to cart</button>
+<button mat-flat-button class="btnm" style="background-color: green;color: white;margin-top: 20px;" (click)="cart(deviceInformation.urlPath)">Buy Now</button>
 </mat-card>
 
 <strong>What we offer you</strong>

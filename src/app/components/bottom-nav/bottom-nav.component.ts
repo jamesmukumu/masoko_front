@@ -13,7 +13,9 @@ export class BottomNavComponent implements OnInit{
 devicesAddectToCart?:Observable<any>
 constructor(private store:Store<{"cart":string}>,private route:Router){}
 cartLength:number = 0
-
+home(){
+this.route.navigate(["/"])
+}
 go_cart(){
 this.route.navigate(["/cart"])
 }

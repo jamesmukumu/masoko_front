@@ -80,12 +80,23 @@
       padding: 10px;
       max-width: 100%;
     }
+    .bottom-nav {
+      display: block;
+      position: fixed; 
+      bottom: 0; 
+      left: 0; 
+      width: 100%; 
+      background-color: #fff; 
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+      z-index: 1000; 
+      padding: 10px 0; 
+  }
 
     mat-accordion, mat-card, .checkout-container, .checkout-summary, .checkout-summary-2, mat-expansion-panel, mat-card-content {
       width: 100%;
-      margin: 0; /* Remove default margin */
-      padding: 0; /* Ensure no extra padding */
-      box-sizing: border-box; /* Include padding in width calculations */
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
   }
   
     .checkout-complete{

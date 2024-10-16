@@ -49,6 +49,7 @@ import { localStorageSync } from 'ngrx-store-localstorage';
 import { DeliveryComponent } from './components/delivery/delivery.component';
 import { MpesaCheckoutComponent } from './components/mpesa-checkout/mpesa-checkout.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { CatalogComponent } from './pages/catalog/catalog.component';
 
 
 
@@ -86,6 +87,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     DeliveryComponent,
     MpesaCheckoutComponent,
     LoaderComponent,
+    CatalogComponent,
   
   ],
   imports: [
@@ -121,10 +123,15 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
         path:"desired/device/:deviceurl",
         component:SingularDeviceComponent
       },
+      {
+        path:"catalog/:catalogname",
+        component:CatalogComponent
+      },
 {
   path:"",
   component:HomeComponent
 },
+
 {
   path:"cart",
   component:CheckoutComponent

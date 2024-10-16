@@ -9,7 +9,10 @@ box-sizing: border-box;
     background: -webkit-linear-gradient(to right, #45B649, #DCE35B); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #45B649, #DCE35B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
-
+.main-image img{
+width: 550px;
+height: 550px;
+}
 mat-tab-group mat-card p{
 font-size: 13px;
 font-weight: normal;
@@ -60,7 +63,7 @@ background-color: rgb(247,247,247);
   display: none;
 }
 
-/* Show bottom nav on smaller screens (e.g., mobile) */
+
 @media (max-width: 901px) {
   .bottom-nav {
       display: block;
@@ -85,6 +88,10 @@ flex-wrap: wrap;
 .thumbnail-column{
 flex-direction: row;
 flex-wrap: wrap;
+}
+.main-image img{
+width: fit-content;
+height: fit-content;
 }
 .images-thumbnail {
     border-color: #45B649;

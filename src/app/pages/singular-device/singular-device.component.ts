@@ -1,7 +1,9 @@
-import { Component,OnInit,ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component,OnInit,ViewEncapsulation,inject } from '@angular/core';
+import { ActivatedRoute,Router } from '@angular/router';
 import { SingularDeviceService } from '../../services/singular-device.service';
-
+import { Store } from '@ngrx/store';
+import { savetoCart } from '../../redux/actions/action.add-cart';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'singular-device',
@@ -10,7 +12,8 @@ import { SingularDeviceService } from '../../services/singular-device.service';
   encapsulation:ViewEncapsulation.None
 })
 export class SingularDeviceComponent implements OnInit {
-constructor(private route:ActivatedRoute,private device:SingularDeviceService){}
+  readonly snack = inject(MatSnackBar)
+constructor(private routing:Router,private store:Store<{"cart":string}>,private route:ActivatedRoute,private device:SingularDeviceService){}
 urlPathDevice:string = ""
 deviceFetched:boolean = false
 deviceInformation:any
@@ -18,7 +21,7 @@ initialQuantity:number = 1
 defaultImageIndex:number = 0
 
 priceChanger(PhonePrice:string):string{
-var exaggeratedPrice = +PhonePrice - 11350
+var exaggeratedPrice = +PhonePrice 
 return exaggeratedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
 discountCalc(originalPrice:string,newPrice:string){
@@ -26,8 +29,19 @@ discountCalc(originalPrice:string,newPrice:string){
   var newprice = +newPrice
   return  ((original - newprice)/original * 100).toFixed(2)
   }
-
-
+  Save_To_Cart(phoneSlug:string){
+    this.store.dispatch(savetoCart({items:phoneSlug}))
+    this.store.subscribe((state)=>console.log(state))
+    this.snack.open("Device added to cart","cart",{
+    verticalPosition:"top",
+    horizontalPosition:"right"
+    })
+    }
+  
+  cart(deviceSlug:string){
+    this.Save_To_Cart(deviceSlug)
+    this.routing.navigate(["/cart"])
+    }
 AdjustMain(thumbnail:string){
 this.defaultImageIndex = this.deviceInformation.gallery.findIndex((gallery:any) => gallery.thumbnail == thumbnail)
 console.log(this.defaultImageIndex)

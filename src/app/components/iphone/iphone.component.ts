@@ -35,7 +35,7 @@ priceFormatter(PriceString:string):string{
   }
   
   priceChanger(PhonePrice:string):string{
-  var exaggeratedPrice = +PhonePrice - 11350
+  var exaggeratedPrice = +PhonePrice 
   return exaggeratedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
   }
 
@@ -57,7 +57,7 @@ this.routing.navigate([`/desired/device/${urlPath}`])
 
   
   ngOnInit(){
-  this.iphone.Fetch_Phone_Brands("iphone").then((data)=>{
+  this.iphone.Fetch_Phone_Brands("apple").then((data)=>{
   this.iphones = data.phonesFetched
   }).catch((err)=>console.log(err))
   }
