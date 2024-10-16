@@ -13,7 +13,10 @@ export class PayService {
       amount: pushAmount,
     };
     try {
-      var resp = await axios.post('http://localhost:5767/go/to/pay', payload);
+      var resp = await axios.post(
+        'https://ajira-production.up.railway.app/go/to/pay',
+        payload
+      );
       return resp.data;
     } catch (err) {
       console.log(err);

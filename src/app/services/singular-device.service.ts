@@ -10,7 +10,7 @@ export class SingularDeviceService {
   async Fetch_Singular_Device(urlPath: string) {
     try {
       var resp = await axios.get(
-        'http://localhost:5767/fetch/singular/device',
+        'https://ajira-production.up.railway.app/fetch/singular/device',
         {
           params: {
             slug: urlPath,
