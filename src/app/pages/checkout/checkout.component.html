@@ -18,14 +18,14 @@
          <div class="item-actions">
           
            <div class="stack-quantity">
-             <button mat-icon-button matTooltip="Increase quantity by 1" (click)="increaseQuantity()">
+             <button mat-icon-button matTooltip="Increase quantity by 1" (click)="increaseQuantity(device.price)">
                <mat-icon>add</mat-icon>
              </button>
          
              <mat-form-field>
-               <input type="number" matInput [(ngModel)]="defaultQuantity" />
+               <input type="number"disabled matInput [(ngModel)]="defaultQuantity" />
              </mat-form-field>
-             <button mat-icon-button matTooltip="Decrease quantity by 1">
+             <button mat-icon-button matTooltip="Decrease quantity by 1" (click)="decreaseQuantity(device.price)">
                <mat-icon>remove</mat-icon>
              </button>
              <mat-icon matTooltip="remove from cart" style="color: green;" (click)="Remove_Cart(device.urlPath)">delete</mat-icon>

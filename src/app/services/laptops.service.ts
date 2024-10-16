@@ -9,9 +9,7 @@ export class LaptopsService {
 
   async Fetch_Laptops() {
     try {
-      var resp = await axios.get(
-        'https://ajira-production.up.railway.app/fetch/laptops'
-      );
+      var resp = await axios.get('http://localhost:5767/fetch/laptops');
       return resp.data;
     } catch (err) {
       return err;

@@ -18,14 +18,39 @@ finalProducts:any[] = []
 totalPrice:number= 0
 totalPriceString?:string
 grandTotal?:string
+Triggered:boolean = false
 constructor(private router:Router,private dector:ChangeDetectorRef,private store:Store<{"cart":string}>,private device:SingularDeviceService){}
 priceFormatter(PriceString:string):string{
 return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
 
-increaseQuantity(){ 
+increaseQuantity(price:string){ 
 this.defaultQuantity += 1
+this.Triggered = true
+var realPrice = +price
+var subtotals  = this.totalPriceString ?? ""
+var subtotalInt = +subtotals.replace(",","")
+var newTotal = this.grandTotal ?? ""
+newTotal = newTotal.replace(",","")
+var tt =  +newTotal +realPrice
+var subtt = subtotalInt + realPrice
+this.totalPriceString = subtt.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
+this.grandTotal =  tt.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
+
+decreaseQuantity(price:string){ 
+  this.defaultQuantity -= 1
+  this.Triggered = true
+  var subtotals  = this.totalPriceString ?? ""
+  var subtotalInt = +subtotals.replace(",","")
+  var realPrice = +price
+  var newTotal = this.grandTotal ?? ""
+  newTotal = newTotal.replace(",","")
+  var tt =  +newTotal  - realPrice
+  var subtt = subtotalInt - realPrice
+this.totalPriceString = subtt.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
+  this.grandTotal =  tt.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
+  }
 
 calculatorEachPrice(price:string):string{
 var newPrice = +price

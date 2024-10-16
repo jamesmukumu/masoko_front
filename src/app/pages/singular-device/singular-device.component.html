@@ -25,15 +25,15 @@
 <mat-icon>favorite</mat-icon>
 </button>
 </p>
-<strong>
-KES: {{priceChanger(deviceInformation.price)}}
-</strong>
-<div *ngIf="deviceInformation.specialPrice != null">
-<del>KES:{{deviceInformation.specialPrice}}</del>
+
+<mat-card-title *ngIf="deviceInformation.specialPrice == null">KES:{{priceChanger(deviceInformation.price)}}</mat-card-title>
+<mat-card-subtitle *ngIf="deviceInformation.specialPrice != null">KES:{{priceChanger(deviceInformation.specialPrice)}}</mat-card-subtitle>  
+ <div *ngIf="deviceInformation.specialPrice != null">
+<del>KES:{{deviceInformation.price}}</del>
 <p style="color: red;font-weight: bolder;">
 {{discountCalc(deviceInformation.price,deviceInformation.specialPrice)}}% OFF
 </p>
-</div>
+ </div>
 
 <p>Quantity:</p>
 
