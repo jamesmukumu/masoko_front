@@ -1,5 +1,5 @@
 <strong>One Plus</strong>
-<div class="container-samsung">
+<div class="container-samsung" *ngIf="fetched">
     <div *ngFor="let iphone of onePlus" class="samsung">
     <mat-card >
     <img src={{iphone.thumbnail}} alt="" (click)="Navigator(iphone.urlPath)" >
@@ -19,4 +19,9 @@
     </div>
     
     
+    </div>
+
+
+    <div *ngIf="!fetched">
+    <ngx-skeleton-loader/>
     </div>

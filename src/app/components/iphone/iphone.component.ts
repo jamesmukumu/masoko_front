@@ -17,6 +17,7 @@ export class IphoneComponent implements OnInit {
 iphones:any[] = []
 iphonesToAddtoCart?:Observable<any>
 readonly snack = inject(MatSnackBar)
+fetched:boolean = false
 
 constructor(private iphone:PixelsService,private routing:Router,private store:Store<{"cart":string}>){
 this.iphonesToAddtoCart =  this.store.select("cart")
@@ -59,6 +60,7 @@ this.routing.navigate([`/desired/device/${urlPath}`])
   ngOnInit(){
   this.iphone.Fetch_Phone_Brands("apple").then((data)=>{
   this.iphones = data.phonesFetched
+  this.fetched = true
   }).catch((err)=>console.log(err))
   }
 

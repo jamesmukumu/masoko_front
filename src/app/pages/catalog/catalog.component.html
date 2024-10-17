@@ -1,7 +1,7 @@
 <mat-card>
 <header></header>
 <strong>{{devices[0].identifierName}}</strong>
-<div class="container-samsung">
+<div class="container-samsung" *ngIf="fetched">
     <div *ngFor="let device of devices" class="samsung">
     <mat-card >
     <img src={{device.thumbnail}} alt="" (click)="Navigator(device.urlPath)">
@@ -22,6 +22,10 @@
     </div>
     
     
+    </div>
+
+    <div *ngIf="!fetched">
+    <ngx-skeleton-loader/>
     </div>
 
 <footer></footer>

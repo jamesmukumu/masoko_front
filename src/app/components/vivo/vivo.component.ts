@@ -13,6 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class VivoComponent implements OnInit{
 vivoPhones:any[] = []
 readonly snack  = inject(MatSnackBar) 
+fetched:boolean = false
 constructor(private phone:PixelsService,private routing:Router,private store:Store<{"cart":string}>){}
 Save_To_Cart(phoneSlug:string){
   this.store.dispatch(savetoCart({items:phoneSlug}))
@@ -49,6 +50,7 @@ return  ((original - newprice)/original * 100).toFixed(2)
 ngOnInit(){
 this.phone.Fetch_Phone_Brands("samsung").then((data)=>{
 this.vivoPhones = data.phonesFetched
+this.fetched = true
 }).catch((err)=>console.log(err))
 }
 }

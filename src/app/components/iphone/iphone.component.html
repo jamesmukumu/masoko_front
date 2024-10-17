@@ -1,12 +1,13 @@
 <strong>Apple Iphones</strong>
-<div class="container-samsung">
+<div class="container-samsung" *ngIf="fetched">
     <div *ngFor="let iphone of iphones" class="samsung">
     <mat-card >
     <img src={{iphone.thumbnail}} alt="" (click)="Navigator(iphone.urlPath)">
     <mat-card-subtitle>{{iphone.name}}</mat-card-subtitle>
-    <mat-card-subtitle>KES:{{priceChanger(iphone.price)}}</mat-card-subtitle> 
+    <mat-card-subtitle *ngIf="iphone.specialPrice == null">KES:{{priceChanger(iphone.price)}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="iphone.specialPrice != null">KES:{{priceChanger(iphone.specialPrice)}}</mat-card-subtitle>  
      <div *ngIf="iphone.specialPrice != null">
-    <del>KES:{{iphone.specialPrice}}</del>
+    <del>KES:{{iphone.price}}</del>
     <p style="color: red;font-weight: bolder;">
     {{discountCalc(iphone.price,iphone.specialPrice)}}% OFF
     </p>
@@ -19,4 +20,8 @@
     </div>
     
     
+    </div>
+
+    <div>
+    <ngx-skeleton-loader count="5" appearance="line"/>
     </div>

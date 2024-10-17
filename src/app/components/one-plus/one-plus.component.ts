@@ -14,6 +14,7 @@ import { savetoCart } from '../../redux/actions/action.add-cart';
 export class OnePlusComponent {
 onePlus:any[] = []
 readonly snack= inject(MatSnackBar)
+fetched:boolean = false
 constructor(private oneplus:PixelsService,private routing:Router,private store:Store<{"cart":string}>){}
 priceFormatter(PriceString:string):string{
 return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")
@@ -55,6 +56,7 @@ this.routing.navigate([`/desired/device/${urlPath}`])
   ngOnInit(){
   this.oneplus.Fetch_Phone_Brands("oneplus").then((data)=>{
   this.onePlus = data.phonesFetched
+  this.fetched = true
   }).catch((err)=>console.log(err))
   }
 

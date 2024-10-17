@@ -1,5 +1,5 @@
 <strong>Hp Laptops</strong>
-<div class="container-laptops">
+<div class="container-laptops" *ngIf="fetched">
 <div *ngFor="let laptop of laptops" class="laptops">
 <mat-card >
 <img src={{laptop.thumbnail}} alt="" (click)="Navigator(laptop.urlPath)">
@@ -13,4 +13,8 @@
 </div>
 
 
+</div>
+
+<div *ngIf="!fetched">
+<ngx-skeleton-loader/>
 </div>

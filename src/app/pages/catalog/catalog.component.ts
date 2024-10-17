@@ -15,6 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class CatalogComponent implements OnInit{
 devices:any[] = []
 catalog:string = ""
+fetched:boolean = false
 readonly snack = inject(MatSnackBar)
 constructor(private catalogInfo:PixelsService,private activeRouter:ActivatedRoute,private routing:Router,private store:Store<{"cart":string}>){}
 FetchRoute(){
@@ -62,7 +63,7 @@ this.FetchRoute()
 console.log(this.catalog)
 this.catalogInfo.Fetch_Phone_Brands(this.catalog).then((data)=>{
 this.devices = data.phonesFetched
-
+this.fetched = true
 }).catch((err)=>console.log("err",err))
 }
 

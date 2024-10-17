@@ -16,6 +16,7 @@ export class LaptopsComponent implements OnInit{
 laptops:any[] = []
 count?:number
 readonly snack = inject(MatSnackBar)
+fetched:boolean = false
 
 priceFormatter(PriceString:string):string{
 return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")
@@ -50,6 +51,7 @@ constructor(private hp:LaptopsService,private routing:Router,private store:Store
   ngOnInit(){
     this.hp.Fetch_Laptops().then((data)=>{
       this.laptops = data.data
+      this.fetched = true
       this.count = data.count
     }).catch((err)=>console.log(err))
   }

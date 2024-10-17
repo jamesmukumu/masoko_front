@@ -1,12 +1,13 @@
 <strong>Samsung Smart Phones</strong>
-<div class="container-samsung">
+<div class="container-samsung" *ngIf="fetched">
     <div *ngFor="let samsung of vivoPhones" class="samsung">
     <mat-card >
     <img src={{samsung.thumbnail}} alt=""  (click)="Navigator(samsung.urlPath)">
     <mat-card-subtitle>{{samsung.name}}</mat-card-subtitle>
-    <mat-card-subtitle>KES:{{priceChanger(samsung.price)}}</mat-card-subtitle> 
+    <mat-card-subtitle *ngIf="samsung.specialPrice == null">KES:{{priceChanger(samsung.price)}}</mat-card-subtitle> 
+    <mat-card-subtitle *ngIf="samsung.specialPrice != null">KES:{{priceChanger(samsung.specialPrice)}}</mat-card-subtitle> 
      <div *ngIf="samsung.specialPrice != null">
-    <del>KES:{{samsung.specialPrice}}</del>
+    <del>KES:{{samsung.price}}</del>
     <p style="color: red;font-weight: bolder;">
     {{discountCalc(samsung.price,samsung.specialPrice)}}% OFF
     </p>
@@ -19,4 +20,9 @@
     </div>
     
     
+    </div>
+
+
+    <div *ngIf="!fetched">
+    <ngx-skeleton-loader/>
     </div>

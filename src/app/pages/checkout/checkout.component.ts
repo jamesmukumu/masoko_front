@@ -5,6 +5,10 @@ import { SingularDeviceService } from '../../services/singular-device.service';
 import { delete_Cart } from '../../redux/actions/action.delete-cart';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { hideCarousel } from '../../redux/actions/action.carousel';
+  
+
+
 @Component({
   selector: 'checkout',
   templateUrl: './checkout.component.html',
@@ -19,7 +23,7 @@ totalPrice:number= 0
 totalPriceString?:string
 grandTotal?:string
 Triggered:boolean = false
-constructor(private router:Router,private dector:ChangeDetectorRef,private store:Store<{"cart":string}>,private device:SingularDeviceService){}
+constructor(private router:Router,private dector:ChangeDetectorRef,private carousel:Store<{"carousel":boolean}>,private store:Store<{"cart":string}>,private device:SingularDeviceService){}
 priceFormatter(PriceString:string):string{
 return PriceString.replace(/\B(?=(\d{3})+(?!\d))/g,",")
 }
@@ -97,6 +101,7 @@ Fetch_Update_Items(){
 }
 
 ngOnInit(){
+this.carousel.dispatch(hideCarousel())
 this.Fetch_Update_Items()
 }
 }

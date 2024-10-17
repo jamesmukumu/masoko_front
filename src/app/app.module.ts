@@ -21,6 +21,7 @@ import {MatSidenavModule} from "@angular/material/sidenav"
 import {MatListModule} from "@angular/material/list"
 import { saveCartReducer } from './redux/reducers/reducer.save_cart';
 import {MatTreeModule} from "@angular/material/tree"
+import { HideReducer } from './redux/reducers/reducer.carousel';
 import {MatStepperModule} from "@angular/material/stepper"
 import { StoreModule,ActionReducerMap,MetaReducer,ActionReducer } from '@ngrx/store';
 import {
@@ -50,17 +51,18 @@ import { DeliveryComponent } from './components/delivery/delivery.component';
 import { MpesaCheckoutComponent } from './components/mpesa-checkout/mpesa-checkout.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
-
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 const reducers: ActionReducerMap<any> = {
   cart: saveCartReducer,
+  carousel:HideReducer
  
 };
 
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
-  return localStorageSync({ keys: ['cart'], rehydrate: true })(reducer);  
+  return localStorageSync({ keys: ['cart',"carousel"], rehydrate: true })(reducer);  
 }
 
 
@@ -99,6 +101,11 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     MatCardModule,
     MatDialogModule,
     ProgressBarModule,
+    NgxSkeletonLoaderModule.forRoot({
+    animation:"pulse",
+    loadingText:"Loading",
+    count:10
+    }),
     MatStepperModule,
     MatTooltipModule,
     MatTabsModule,
