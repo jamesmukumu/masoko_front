@@ -52,6 +52,7 @@ import { MpesaCheckoutComponent } from './components/mpesa-checkout/mpesa-checko
 import { LoaderComponent } from './components/loader/loader.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { SuccessComponent } from './components/success/success.component';
 
 
 const reducers: ActionReducerMap<any> = {
@@ -90,6 +91,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     MpesaCheckoutComponent,
     LoaderComponent,
     CatalogComponent,
+    SuccessComponent,
   
   ],
   imports: [
