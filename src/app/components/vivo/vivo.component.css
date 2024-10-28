@@ -6,6 +6,14 @@
   .container-samsung {
     text-align: center;
   }
+  mat-card-subtitle {
+    display: -webkit-box;
+    -webkit-line-clamp: 1; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+  }
   
   .container-samsung {
     display: grid;
@@ -14,10 +22,7 @@
     padding: 10px;
   }
   
-  mat-card-subtitle{
-padding-top: 20px;
 
-  }
   @media (max-width: 768px) {
     .container-samsung{
       display: flex;

@@ -36,6 +36,14 @@
     width: 100%;
     height: fit-content;
   }
+  mat-card-subtitle {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+  }
   
   mat-card img {
     width: 100%;

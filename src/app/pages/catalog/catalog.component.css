@@ -6,7 +6,14 @@
   .container-samsung {
     text-align: center;
   }
-  
+  mat-card-subtitle {
+    display: -webkit-box;
+    -webkit-line-clamp: 1; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+  }
   .container-samsung {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

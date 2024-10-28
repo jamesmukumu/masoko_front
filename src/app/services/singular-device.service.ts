@@ -22,4 +22,18 @@ export class SingularDeviceService {
       console.log(err);
     }
   }
+
+  async FilterDevice(slug: string) {
+    try {
+      var resp = await axios.get(
+        'https://ajira-production.up.railway.app/filter/device',
+        {
+          params: { device: slug },
+        }
+      );
+      return resp.data;
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }

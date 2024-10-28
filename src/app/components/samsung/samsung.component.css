@@ -13,7 +13,14 @@
     gap: 20px; 
     padding: 10px;
   }
-  
+  mat-card-subtitle {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+  }
   mat-card-subtitle{
 padding-top: 20px;
 

@@ -23,9 +23,9 @@
       <mat-form-field>
       <mat-label>What are you looking for?</mat-label>
       <mat-icon matSuffix>search</mat-icon>
-      <input type="text" matInput style="border-color: green;" />
+      <input type="text" matInput style="border-color: green;" [(ngModel)]="deviceSearch" (keyup)="fetchSearch()" />
       </mat-form-field>
-      
+     
       <div class="icons">
       <mat-icon>person</mat-icon>
       
@@ -34,6 +34,27 @@
       
       
       </mat-card>
+      
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="filtering">
+          <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef>Brand Image</th>
+          <td mat-cell *matCellDef="let element" (click)="goPhone(element.urlPath)"> <img src={{element.thumbnail}} style="width: 100px;height: 100px;" alt=""> </td>
+        </ng-container>
+      
+    
+      
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Phone Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.name}}</td>
+          </ng-container>
+       <tr mat-header-row *matHeaderRowDef="rowInfo"></tr>
+        <tr mat-row *matRowDef="let row; columns: rowInfo;"></tr>
+      
+       
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter </td>
+        </tr>  
+      </table>
       <c-carousel >
     
         <c-carousel-inner>
@@ -52,3 +73,6 @@
   </mat-drawer-content>
   </mat-drawer-container>
   
+
+
+ 

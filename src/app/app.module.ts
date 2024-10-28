@@ -14,11 +14,13 @@ import {MatIconModule} from "@angular/material/icon"
 import {MatInputModule} from "@angular/material/input"
 import {MatDialogModule} from "@angular/material/dialog"
 import { ProgressBarModule } from 'primeng/progressbar';
+import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from "@angular/material/button"
 import {MatBadgeModule} from "@angular/material/badge"
 import {MatSidenavModule} from "@angular/material/sidenav"
 import {MatListModule} from "@angular/material/list"
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { saveCartReducer } from './redux/reducers/reducer.save_cart';
 import {MatTreeModule} from "@angular/material/tree"
 import { HideReducer } from './redux/reducers/reducer.carousel';
@@ -98,6 +100,8 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     BrowserModule,
     AppRoutingModule,  
   MatProgressBarModule,
+  MatTableModule,
+  MatProgressSpinnerModule,
   StoreModule.forRoot(reducers, { metaReducers }),
     MatButtonModule,
     MatCardModule,
