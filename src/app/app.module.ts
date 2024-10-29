@@ -55,6 +55,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SuccessComponent } from './components/success/success.component';
+import { DownloadComponent } from './components/download/download.component';
 
 
 const reducers: ActionReducerMap<any> = {
@@ -94,6 +95,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     LoaderComponent,
     CatalogComponent,
     SuccessComponent,
+    DownloadComponent,
   
   ],
   imports: [
