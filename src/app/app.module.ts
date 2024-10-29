@@ -11,6 +11,7 @@ import {MatDividerModule} from "@angular/material/divider"
 import {MatExpansionModule} from "@angular/material/expansion"
 import {MatCardModule} from "@angular/material/card"
 import {MatIconModule} from "@angular/material/icon"
+import {MatCheckboxModule} from "@angular/material/checkbox"
 import {MatInputModule} from "@angular/material/input"
 import {MatDialogModule} from "@angular/material/dialog"
 import { ProgressBarModule } from 'primeng/progressbar';
@@ -56,17 +57,18 @@ import { CatalogComponent } from './pages/catalog/catalog.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SuccessComponent } from './components/success/success.component';
 import { DownloadComponent } from './components/download/download.component';
-
+import { appDownloader } from './redux/reducers/reducer.download';
 
 const reducers: ActionReducerMap<any> = {
   cart: saveCartReducer,
-  carousel:HideReducer
+  carousel:HideReducer,
+  app:appDownloader
  
 };
 
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
-  return localStorageSync({ keys: ['cart',"carousel"], rehydrate: true })(reducer);  
+  return localStorageSync({ keys: ['cart',"carousel","app"], rehydrate: true })(reducer);  
 }
 
 
@@ -84,6 +86,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     IphoneComponent,
     VivoComponent,
     FooterComponent,
+   
     PixelsComponent,
     SingularDeviceComponent,
     OnePlusComponent,
@@ -107,6 +110,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
   StoreModule.forRoot(reducers, { metaReducers }),
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
     MatDialogModule,
     ProgressBarModule,
     NgxSkeletonLoaderModule.forRoot({
