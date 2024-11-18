@@ -9,7 +9,7 @@ export class PixelsService {
   async Fetch_Phone_Brands(PhoneSlug: string) {
     try {
       var resp = await axios.get(
-        'https://ajira-production.up.railway.app/get/phones/brandwise',
+        'https://masoko-production.up.railway.app//get/phones/brandwise',
         {
           params: {
             brandSlug: PhoneSlug,
