@@ -10,7 +10,7 @@ export class LaptopsService {
   async Fetch_Laptops() {
     try {
       var resp = await axios.get(
-        'https://masoko-production.up.railway.app//fetch/laptops'
+        'https://masoko-production.up.railway.app/fetch/laptops'
       );
       return resp.data;
     } catch (err) {

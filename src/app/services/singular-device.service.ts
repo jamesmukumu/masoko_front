@@ -10,7 +10,7 @@ export class SingularDeviceService {
   async Fetch_Singular_Device(urlPath: string) {
     try {
       var resp = await axios.get(
-        'https://masoko-production.up.railway.app//fetch/singular/device',
+        'https://masoko-production.up.railway.app/fetch/singular/device',
         {
           params: {
             slug: urlPath,
@@ -26,7 +26,7 @@ export class SingularDeviceService {
   async FilterDevice(slug: string) {
     try {
       var resp = await axios.get(
-        'https://masoko-production.up.railway.app//filter/device',
+        'https://masoko-production.up.railway.app/filter/device',
         {
           params: { device: slug },
         }
