@@ -10,11 +10,12 @@ export class LaptopsService {
   async Fetch_Laptops() {
     try {
       var resp = await axios.get(
-        'https://masoko-production.up.railway.app/fetch/laptops'
+        'https://techwave.up.railway.app/get/phones/brandwise?brandSlug=hp'
       );
       return resp.data;
     } catch (err) {
       return err;
     }
   }
+  //
 }

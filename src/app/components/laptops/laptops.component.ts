@@ -50,7 +50,8 @@ Save_To_Cart(phoneSlug:string){
 constructor(private hp:LaptopsService,private routing:Router,private store:Store<{"cart":string}>){}
   ngOnInit(){
     this.hp.Fetch_Laptops().then((data)=>{
-      this.laptops = data.data
+      var {phonesFetched} = data
+      this.laptops = phonesFetched
       this.fetched = true
       this.count = data.count
     }).catch((err)=>console.log(err))

@@ -14,6 +14,9 @@
     grid-template-columns: 2fr 2fr;
     gap: 16px;
   }
+  .bottom-nav{
+    display: none;
+  }
   
   .checkout-info {
     width: 60%;

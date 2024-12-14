@@ -15,7 +15,7 @@ export class PayService {
     };
     try {
       var resp = await axios.post(
-        'https://masoko-production.up.railway.app/go/to/pay',
+        'https://techwave.up.railway.app/go/to/pay',
         payload
       );
       return resp.data;
@@ -28,7 +28,7 @@ export class PayService {
     var token = Cookies.get('payment');
     try {
       var resp = await axios.post(
-        'https://masoko-production.up.railway.app/validate/payment',
+        'https://techwave.up.railway.app/validate/payment',
         {},
         {
           headers: { payment: `Basic ${token}` },
